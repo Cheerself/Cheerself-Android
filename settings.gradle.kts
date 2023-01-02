@@ -13,4 +13,4 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "Cheerself"
-include ':app'
+include(":app")
