@@ -3,15 +3,12 @@ buildscript {
     dependencies {
         classpath(libs.gradle.androidGradlePlugin)
         classpath(libs.gradle.kotlinPlugin)
+        classpath(libs.gradle.hiltPlugin)
     }
 }
 
 plugins {
-    alias(libs.plugins.android.application) apply false
-    alias(libs.plugins.android.library) apply false
-    alias(libs.plugins.hilt) apply false
-    alias(libs.plugins.jetbrains.kotlin.android) apply false
-    alias(libs.plugins.toml.checker)
-    alias(libs.plugins.toml.updater)
+    id("com.android.application") version("7.3.1") apply false
+    id("com.google.dagger.hilt.android") version("2.44.2") apply false
 }
 

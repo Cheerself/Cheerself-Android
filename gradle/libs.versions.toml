@@ -3,7 +3,7 @@ accompanist = "0.28.0"
 androidGradlePlugin = "7.3.1"
 androidx-activity-compose = "1.6.1"
 androidx-appcompat = "1.5.1"
-androidx-benchmark = "1.1.0"
+androidx-benchmark = "1.1.1"
 androidx-benchmark-junit4 = "1.1.0-beta04"
 androidx-compose-bom = "2022.12.00"
 androidx-constraintLayout = "1.0.1"
@@ -28,13 +28,13 @@ compose-snapshot = "-"
 coroutines = "1.6.4"
 google-truth = "1.1.3"
 gson = "2.9.0"
-hilt = "2.43.2"
+hilt = "2.44.2"
 hilt-ext = "1.0.0"
 junit = "4.13.2"
 kotlin = "1.7.20"
 maps-compose = "2.5.3"
 material = "1.8.0-beta01"
-minSdk = "21"
+minSdk = "23"
 okhttp = "4.10.0"
 room = "2.5.0-alpha02"
 targetSdk = "33"
@@ -43,9 +43,9 @@ targetSdk = "33"
 # Accompanist Deps
 accompanist-adaptive = { module = "com.google.accompanist:accompanist-adaptive", version.ref = "accompanist" }
 accompanist-drawablePainter = { module = "com.google.accompanist:accompanist-drawablepainter", version.ref = "accompanist" }
-accompanist-flowLayouts = { module = "com.google.accompanist:accompanist-flowlayouts", version.ref = "accompanist" }
-accompanist-navigationAnimation = { module = "com.google.accompanist:accompanist-navigationanimation", version.ref = "accompanist" }
-accompanist-navigationMaterial = { module = "com.google.accompanist:accompanist-navigationmaterial", version.ref = "accompanist" }
+accompanist-flowLayouts = { module = "com.google.accompanist:accompanist-flowlayout", version.ref = "accompanist" }
+accompanist-navigationAnimation = { module = "com.google.accompanist:accompanist-navigation-animation", version.ref = "accompanist" }
+accompanist-navigationMaterial = { module = "com.google.accompanist:accompanist-navigation-material", version.ref = "accompanist" }
 accompanist-pager = { module = "com.google.accompanist:accompanist-pager", version.ref = "accompanist" }
 accompanist-permissions = { module = "com.google.accompanist:accompanist-permissions", version.ref = "accompanist" }
 accompanist-placeHolder = { module = "com.google.accompanist:accompanist-placeholder", version.ref = "accompanist" }
@@ -55,8 +55,8 @@ accompanist-systemUIController = { module = "com.google.accompanist:accompanist-
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activity-compose" }
 androidx-activity-ktx = { module = "androidx.activity:activity-ktx", version.ref = "androidx-activity-compose" }
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "androidx-appcompat" }
-androidx-benchmark-macrobenchmark = { module = "androidx.benchmark:benchmark-macro", version.ref = "androidx-benchmark" }
-androidx-benchmark-macrobenchmark-junit4 = { module = "aandroidx.benchmark:benchmark-macro-junit4", version.ref = "androidx-benchmark-junit4" }
+androidx-benchmark-macrobenchmark = { module = "androidx.benchmark:benchmark-macro-junit4", version.ref = "androidx-benchmark" }
+androidx-benchmark-macrobenchmark-junit4 = { module = "androidx.benchmark:benchmark-macro-junit4", version.ref = "androidx-benchmark-junit4" }
 
 # Compose
 androidx-compose-animation = { module = "androidx.compose.animation:animation" }
@@ -78,7 +78,7 @@ androidx-compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling" }
 androidx-compose-ui-toolingPreview = { module = "androidx.compose.ui:ui-tooling-preview" }
 androidx-compose-ui-util = { module = "androidx.compose.ui:ui-util" }
 androidx-compose-ui-viewBinding = { module = "androidx.compose.ui:ui-viewbinding" }
-androidx-constraintLayout-compose = { module = "androidx.constraintlayout:constrainlayout-compose", version.ref = "androidx-constraintLayout" }
+androidx-constraintLayout-compose = { module = "androidx.constraintlayout:constraintlayout-compose", version.ref = "androidx-constraintLayout" }
 
 # Core
 androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "androidx-coreKTX" }
@@ -87,13 +87,13 @@ androidx-core-splashScreen = { module = "androidx.core:core-splashscreen", versi
 # DataStore
 
 # Lifecycle
-androidx-lifecycle-compiler = { module = "androidx-lifecycle:lifecycle-compiler", version.ref = "androidx-lifecycle-compose" }
-androidx-lifecycle-livedata = { module = "androidx-lifecycle:lifecycle-livedata-ktx", version.ref = "androidx-lifecycle-compose" }
-androidx-lifecycle-runtime = { module = "androidx-lifecycle:lifecycle-runtime-ktx", version.ref = "androidx-lifecycle-runtime-compose" }
-androidx-lifecycle-runtime-compose = { module = "androidx-lifecycle:lifecycle-livedata-ktx", version.ref = "androidx-lifecycle-compose" }
-androidx-lifecycle-viewModel = { module = "androidx-lifecycle:lifecycle-viewmodel-ktx", version.ref = "androidx-lifecycle-compose" }
-androidx-lifecycle-viewModel-compose = { module = "androidx-lifecycle:lifecycle-viewmodel-compose", version.ref = "androidx-lifecycle-compose" }
-androidx-lifecycle-viewModel-savedState = { module = "androidx-lifecycle:lifecycle-viewmodel-savedstate", version.ref = "androidx-lifecycle-compose" }
+androidx-lifecycle-compiler = { module = "androidx.lifecycle:lifecycle-compiler", version.ref = "androidx-lifecycle-compose" }
+androidx-lifecycle-livedata = { module = "androidx.lifecycle:lifecycle-livedata-ktx", version.ref = "androidx-lifecycle-compose" }
+androidx-lifecycle-runtime = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "androidx-lifecycle-runtime-compose" }
+androidx-lifecycle-runtime-compose = { module = "androidx.lifecycle:lifecycle-livedata-ktx", version.ref = "androidx-lifecycle-compose" }
+androidx-lifecycle-viewModel = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "androidx-lifecycle-compose" }
+androidx-lifecycle-viewModel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "androidx-lifecycle-compose" }
+androidx-lifecycle-viewModel-savedState = { module = "androidx.lifecycle:lifecycle-viewmodel-savedstate", version.ref = "androidx-lifecycle-compose" }
 
 # Navigation
 androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "androidx-navigation" }
@@ -114,6 +114,7 @@ androidx-window = { module = "androidx.window:window", version.ref = "androidx-w
 # Gradle
 gradle-androidGradlePlugin = { module = "com.android.tools.build:gradle", version.ref = "androidGradlePlugin" }
 gradle-kotlinPlugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+gradle-hiltPlugin = { module = "com.google.dagger:hilt-android-gradle-plugin", version.ref = "hilt" }
 
 # Google
 google-android-material = { module = "com.google.android.material:material", version.ref = "material" }

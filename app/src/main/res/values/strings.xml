@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Cheerself</string>
+    <string name="asIndividual">Continue As Individual</string>
+    <string name="asEmployee">Continue As Employee</string>
+    <string name="welcome">Welcome To Cheerself</string>
+    <string name="cheerselfQuote">Your mental health and well-being companion</string>
+
+
 </resources>

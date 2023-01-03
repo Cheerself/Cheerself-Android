@@ -9,12 +9,14 @@
 
 plugins {
     id("com.android.application")
-//    id "org.jetbrains.kotlin.android"
-    id("kotlin-kapt")
+    id( "org.jetbrains.kotlin.android")
     id("kotlin-android")
-    id("dagger.hilt.android.plugin")
+//    id("dagger.hilt.android.plugin")
     id("kotlin-parcelize")
+    id("com.google.dagger.hilt.android")
 //    id ("com.google.devtools.ksp") version "1.6.10-1.0.2"
+    id("kotlin-kapt")
+
 }
 
 kapt {
@@ -112,7 +114,7 @@ dependencies {
     implementation(libs.androidx.constraintLayout.compose)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.core.splashScreen)
-    implementation(libs.androidx.lifecycle.compiler)
+    kapt(libs.androidx.lifecycle.compiler)
     implementation(libs.androidx.lifecycle.livedata)
     implementation(libs.androidx.lifecycle.runtime)
     implementation(libs.androidx.lifecycle.runtime.compose)
@@ -125,9 +127,9 @@ dependencies {
     implementation(libs.androidx.window)
     implementation(libs.google.android.material)
     implementation(libs.hilt.android)
-    implementation(libs.hilt.android.compiler)
+    kapt(libs.hilt.android.compiler)
     implementation(libs.hilt.ext.compiler)
-    implementation(libs.kotlin.extensions)
+//    implementation(libs.kotlin.extensions)
     implementation(libs.kotlin.stdlib)
     implementation(libs.kotlinx.coroutines.android)
     testImplementation(libs.test.unit.junit)
