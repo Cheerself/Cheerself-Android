@@ -22,16 +22,16 @@ plugins {
 kapt {
     correctErrorTypes = true
 }
-//kotlin {
-//    sourceSets {
-//        debug {
-//            kotlin.srcDir("build/generated/ksp/debug/kotlin")
-//        }
-//        release {
-//            kotlin.srcDir("build/generated/ksp/release/kotlin")
-//        }
-//    }
-//}
+kotlin {
+    sourceSets {
+        debug {
+            kotlin.srcDir("build/generated/ksp/debug/kotlin")
+        }
+        release {
+            kotlin.srcDir("build/generated/ksp/release/kotlin")
+        }
+    }
+}
 
 android {
     compileSdk = libs.versions.compileSdk.get().toInt()

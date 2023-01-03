@@ -4,6 +4,52 @@
     <string name="asEmployee">Continue As Employee</string>
     <string name="welcome">Welcome To Cheerself</string>
     <string name="cheerselfQuote">Your mental health and well-being companion</string>
+    <string name="Continue">Continue</string>
 
+    <string name="work_employee_email">What is you work email?</string>
+    <string name="work_description">We currently only permit employer-sponsored users and a few insurance providers</string>
 
+    <!-- survey -->
+    <!-- question 1 -->
+    <string name="what_brings_you_here">So, what brings you here?</string>
+    <string name="select_2">Choose at-least 2 issues you face for a more personalised experience</string>
+    <string name="stress">Stress</string>
+    <string name="anxiety">Anxiety</string>
+    <string name="burnouts">Burnouts</string>
+    <string name="depression">Depression</string>
+    <string name="loneliness">Loneliness</string>
+    <string name="self_esteem">Self-Esteem</string>
+    <string name="nutrition">Nutrition</string>
+    <string name="sleeping">Sleeping</string>
+    <string name="something_else">Something Else</string>
+
+    <!-- question 2 -->
+    <string name="learn_abt_perks">Learn about your perks</string>
+    <string name="perks_description">Here are all the benefits included with your subscription, although you can always have the option to add additional benefits for yourself</string>
+    <string name="upto_50_off">Enjoy up to 50% off on Coaching</string>
+    <string name="free_guided_meditation">Free Guided Meditations</string>
+    <string name="endless_relaxing_exercises">Endless Relaxing Exercises</string>
+
+    <!-- later survey -->
+    <!-- q 1 -->
+    <string name="how_do_you_feel">How do feel right now?</string>
+    <string name="how_do_you_feel_description">Tell us how are you feeling so we can help you find the best coaching</string>
+    <string name="cheerful">Cheerful</string>
+    <string name="excited">Excited</string>
+    <string name="strong">Strong</string>
+    <string name="motivated">Motivated</string>
+    <string name="unpleasant">Unpleasant</string>
+    <string name="depressed">Depressed</string>
+    <string name="burned_out">Burned Out</string>
+    <string name="low_confidence">Low Confidence</string>
+    <string name="demotivated">Demotivated</string>
+    <string name="sad">Sad</string>
+
+    <!-- q 2 -->
+    <string name="how_long_have_you_been_feeling">How long have you been feeling this way?</string>
+    <string name="how_long_have_you_been_feeling_description">Tell us long have you been feeling like this so we can personalise your recommendations.</string>
+    <string name="since_day_started">Since Day Started</string>
+    <string name="since_something_happened">Since Something Happened</string>
+    <string name="since_last_hour">Since Last Hour</string>
+    <string name="i_cant_tell">I Can\'t Tell</string>
 </resources>
