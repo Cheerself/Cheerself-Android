@@ -93,6 +93,7 @@ dependencies {
     implementation(libs.accompanist.permissions)
     implementation(libs.accompanist.placeHolder)
     implementation(libs.accompanist.systemUIController)
+    implementation(libs.androidx.activity)
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.activity.ktx)
     implementation(libs.androidx.appcompat)
