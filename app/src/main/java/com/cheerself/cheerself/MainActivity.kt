@@ -24,10 +24,11 @@ class MainActivity : ComponentActivity() {
         setContent {
             val systemUiController = rememberSystemUiController()
             SideEffect {
-                systemUiController.setStatusBarColor(
+                systemUiController.setSystemBarsColor(
                     color = Color.Transparent,
                     darkIcons = true
                 )
+
             }
             CheerselfTheme {
                 // A surface container using the 'background' color from the theme
