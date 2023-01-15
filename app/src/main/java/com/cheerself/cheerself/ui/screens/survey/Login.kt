@@ -17,6 +17,7 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import com.cheerself.cheerself.R
 import com.cheerself.cheerself.ui.composables.CheerselfTextField
+import com.cheerself.cheerself.ui.composables.QuestionTemplate
 
 @Composable
 fun Login() {
@@ -26,11 +27,9 @@ fun Login() {
 //    var textFieldFocusState by remember { mutableStateOf(false) }
     Surface() {
         Column() {
-            Text(
-                text = stringResource(id = R.string.work_employee_email)
-            )
-            Text(
-                text = stringResource(id = R.string.work_description)
+            QuestionTemplate(
+                title = stringResource(id = R.string.work_employee_email),
+                description = stringResource(id = R.string.work_description)
             )
             CheerselfTextField(
                 value = textState,
