@@ -5,9 +5,11 @@
     <string name="welcome">Welcome To Cheerself</string>
     <string name="cheerselfQuote">Your mental health and well-being companion</string>
     <string name="Continue">Continue</string>
+    <string name="getStarted">Get Started</string>
 
     <string name="work_employee_email">What is you work email?</string>
     <string name="work_description">We currently only permit employer-sponsored users and a few insurance providers</string>
+    <string name="login_note">kindly verify before continuing</string>
 
     <!-- survey -->
     <!-- question 1 -->

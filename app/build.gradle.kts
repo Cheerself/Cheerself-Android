@@ -10,12 +10,14 @@
 plugins {
     id("com.android.application")
     id( "org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
     id("kotlin-android")
 //    id("dagger.hilt.android.plugin")
     id("kotlin-parcelize")
+    id("dagger.hilt.android.plugin")
     id("com.google.dagger.hilt.android")
+    id ("com.google.gms.google-services")
 //    id ("com.google.devtools.ksp") version "1.6.10-1.0.2"
-    id("kotlin-kapt")
 
 }
 
@@ -41,7 +43,7 @@ android {
         minSdk = libs.versions.minSdk.get().toInt()
         targetSdk = libs.versions.targetSdk.get().toInt()
         versionCode = 1
-        versionName = "1.0"
+        versionName = "0.0.1"
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -115,19 +117,25 @@ dependencies {
     implementation(libs.androidx.compose.ui.viewBinding)
     implementation(libs.androidx.constraintLayout.compose)
     implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.fragment.ktx)
     implementation(libs.androidx.core.splashScreen)
+
     kapt(libs.androidx.lifecycle.compiler)
-    implementation(libs.androidx.lifecycle.livedata)
-    implementation(libs.androidx.lifecycle.runtime)
-    implementation(libs.androidx.lifecycle.runtime.compose)
     implementation(libs.androidx.lifecycle.viewModel)
     implementation(libs.androidx.lifecycle.viewModel.compose)
+    implementation(libs.androidx.lifecycle.livedata)
     implementation(libs.androidx.lifecycle.viewModel.savedState)
+    implementation(libs.androidx.lifecycle.runtime)
+
     implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.navigation.compose.hiltNavigation)
     implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.androidx.window)
     implementation(libs.google.android.material)
+    implementation (platform(libs.google.firebase))
+    implementation ("com.google.android.gms:play-services-auth:20.4.0")
+    implementation ("com.google.firebase:firebase-auth-ktx")
+    implementation(libs.google.firebase.analytics.ktx)
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
     implementation(libs.hilt.ext.compiler)

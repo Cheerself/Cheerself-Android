@@ -58,6 +58,7 @@ fun SurveyTopAppBar(
             progress = animatedProgress,
             modifier = Modifier
                 .padding(start = 50.dp,end = 50.dp)
+                .fillMaxWidth()
                 .clip(shape = CircleShape),
             trackColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.12f),
             color = MaterialTheme.colorScheme.secondary

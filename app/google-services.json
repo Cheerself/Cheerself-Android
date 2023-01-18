@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "545792508509",
+    "project_id": "cheerself-9d85c",
+    "storage_bucket": "cheerself-9d85c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:545792508509:android:1a112b206925f1171a83b4",
+        "android_client_info": {
+          "package_name": "com.cheerself.cheerself"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "545792508509-fo0o41hkgdg1ool4529m5o7no7i9d9n4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCs_NQ7VF5YvIer_i1PSXK92oUc9bRFHVg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "545792508509-fo0o41hkgdg1ool4529m5o7no7i9d9n4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

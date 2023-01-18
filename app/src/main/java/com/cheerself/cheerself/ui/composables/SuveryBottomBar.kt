@@ -5,14 +5,17 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.cheerself.cheerself.R
 
 @Composable
 fun SurveyBottomBar(
     shouldShowPreviousButton: Boolean,
 //    shouldShowContinueButton: Boolean,
     isContinueButtonEnabled: Boolean,
+    isLastQuestion: Boolean,
     onContinuePressed: () -> Unit,
     onPreviousPressed: () -> Unit
 ) {
@@ -28,6 +31,7 @@ fun SurveyBottomBar(
             if (shouldShowPreviousButton) {
                 PrimaryButton(
                     value = "Previous",
+                    isFilled = false,
                     onClick = onPreviousPressed,
                     modifier = Modifier
                         .weight(1f)
@@ -35,7 +39,8 @@ fun SurveyBottomBar(
                 Spacer(modifier = Modifier.width(16.dp))
             }
             PrimaryButton(
-                value = "Continue",
+                value = if (isLastQuestion) stringResource(id = R.string.getStarted)
+                    else stringResource(id = R.string.Continue) ,
                 onClick = onContinuePressed,
                 isEnabled = isContinueButtonEnabled,
                 modifier = Modifier.weight(1f)
@@ -52,8 +57,9 @@ fun PreviewSurveyBottomBar() {
         SurveyBottomBar(
             shouldShowPreviousButton = false,
             isContinueButtonEnabled = true,
-            onContinuePressed = { /*TODO*/ },
-            onPreviousPressed = { }
+            onContinuePressed = { },
+            onPreviousPressed = { },
+            isLastQuestion = true
         )
     }
 }

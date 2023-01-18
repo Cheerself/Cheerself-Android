@@ -20,12 +20,14 @@ import com.cheerself.cheerself.ui.composables.CheerselfTextField
 import com.cheerself.cheerself.ui.composables.QuestionTemplate
 
 @Composable
-fun Login() {
+fun Login(modifier: Modifier = Modifier) {
     var textState by rememberSaveable(stateSaver = TextFieldValue.Saver) {
         mutableStateOf(TextFieldValue())
     }
 //    var textFieldFocusState by remember { mutableStateOf(false) }
-    Surface() {
+    Surface(
+        modifier = modifier
+    ) {
         Column() {
             QuestionTemplate(
                 title = stringResource(id = R.string.work_employee_email),

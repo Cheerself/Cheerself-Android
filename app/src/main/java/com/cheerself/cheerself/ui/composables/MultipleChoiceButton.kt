@@ -16,7 +16,7 @@ fun MultipleChoiceButton(
     choice: String,
     modifier: Modifier = Modifier,
     isEnabled: Boolean = true,
-    isSelected: Boolean = true,
+    isSelected: Boolean,
     elevation: ButtonElevation = ButtonDefaults.buttonElevation(0.dp)
 ) {
     val containerColor = if (isSelected) {
@@ -54,12 +54,14 @@ fun PreviewMultipleChoiceButton() {
             MultipleChoiceButton(
                 onClick = { /*TODO*/ },
                 choice = "something",
-                modifier = Modifier.weight(1f)
+                modifier = Modifier.weight(1f),
+                isSelected = true
             )
             MultipleChoiceButton(
                 isSelected = false,
                 onClick = { /*TODO*/ },
                 choice = "something else",
+                
                 modifier = Modifier.weight(1f)
             )
         }

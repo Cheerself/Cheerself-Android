@@ -14,6 +14,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.view.WindowCompat
 import com.cheerself.cheerself.ui.screens.WelcomeScreen
+import com.cheerself.cheerself.ui.screens.survey.SurveyScreen
 import com.cheerself.cheerself.ui.theme.CheerselfTheme
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
@@ -36,7 +37,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    WelcomeScreen()
+                    SurveyScreen()
                 }
             }
         }
