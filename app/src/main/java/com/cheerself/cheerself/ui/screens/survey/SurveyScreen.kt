@@ -1,39 +1,42 @@
 package com.cheerself.cheerself.ui.screens.survey
 
-//import androidx.activity.viewModels
+import android.util.Log
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.AnimatedContentScope
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.animation.core.TweenSpec
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.with
-import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateListOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.IntOffset
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
+import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
+import com.cheerself.cheerself.CheerselfAppState
+import com.cheerself.cheerself.R
+import com.cheerself.cheerself.rememberCheerselfAppState
 import com.cheerself.cheerself.ui.composables.SurveyBottomBar
 import com.cheerself.cheerself.ui.composables.SurveyTopAppBar
-import com.cheerself.cheerself.viewmodels.SurveyQuestionsData
-import com.cheerself.cheerself.viewmodels.SurveyViewModel
-import androidx.lifecycle.viewmodel.compose.viewModel
-import com.cheerself.cheerself.R
 import com.cheerself.cheerself.ui.theme.CheerselfTheme
 import com.cheerself.cheerself.utils.Constants.CONTENT_ANIMATION_DURATION
+import com.cheerself.cheerself.utils.navigation.MainDestination
 import com.cheerself.cheerself.viewmodels.SurveyQuestions
+import com.cheerself.cheerself.viewmodels.SurveyQuestionsData
+import com.cheerself.cheerself.viewmodels.SurveyViewModel
 
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
-fun SurveyScreen() {
+fun SurveyScreen(navController: NavHostController) {
     val viewModel = viewModel<SurveyViewModel>()
+    val appState = rememberCheerselfAppState()
     val surveyScreenData = viewModel.surveyScreenData
     val possibleAnswers = listOf(
         R.string.stress,
@@ -46,52 +49,65 @@ fun SurveyScreen() {
         R.string.sleeping,
         R.string.something_else
     )
-
     SurveyScreenScaffold(
         surveyScreenData = surveyScreenData,
         isContinueEnabled = viewModel.isContinueEnabled,
         isLastQuestion = viewModel.surveyScreenData.isLastQuestion,
         onContinuePressed = { viewModel.onContinuePressed() },
-        onBackPressed = { viewModel.onBackPressed() }
-    ) { paddingValues ->
-        val modifier = Modifier.padding(paddingValues)
+        onBackPressed = { viewModel.onBackPressed() },
+        onDonePressed = {
+            viewModel.onDonePressed()
+            if (viewModel.isSurveyComplete) {
+                navController.navigate(MainDestination.HomeScreen.route) {
+                    popUpTo(MainDestination.WelcomeScreen.route){ inclusive = true}
 
-        AnimatedContent(
-            targetState = surveyScreenData,
-            transitionSpec = {
-                val animationSpec: TweenSpec<IntOffset> =
-                    tween(CONTENT_ANIMATION_DURATION)
-                val direction = getTransitionDirection(
-                    initialIndex = initialState.currentIndex,
-                    targetIndex = targetState.currentIndex,
-                )
-                slideIntoContainer(
-                    towards = direction,
-                    animationSpec = animationSpec
-                ) with slideOutOfContainer(
-                    towards = direction,
-                    animationSpec = animationSpec
-                )
-            }
-        ) { targetState ->
-            when (targetState.surveyQuestions) {
-                SurveyQuestions.LOGIN -> {
-                    Login(modifier = modifier)
                 }
-                SurveyQuestions.WHAT_BRINGS_YOU_HERE -> {
-                    WhatBringsYouHere(
-                        selectedAnswers = viewModel.bringsYouHereResponse,
-                        possibleAnswers = possibleAnswers,
-                        onOptionsSelected = viewModel::onBringsYouHereResponse,
-                        modifier = modifier
-                    )
-                }
-                SurveyQuestions.PERKS -> Perks()
             }
         }
+    ) { paddingValues ->
+        val modifier = Modifier
+            .padding(paddingValues)
+            .padding(horizontal = 20.dp)
 
+        if (viewModel.isSurveyComplete) {
+            Log.d("Survey", "Complete")
+//            navController.navigate(MainDestination.HomeScreen.route)
+        } else {
+            AnimatedContent(
+                targetState = surveyScreenData,
+                transitionSpec = {
+                    val animationSpec: TweenSpec<IntOffset> =
+                        tween(CONTENT_ANIMATION_DURATION)
+                    val direction = getTransitionDirection(
+                        initialIndex = initialState.currentIndex,
+                        targetIndex = targetState.currentIndex,
+                    )
+                    slideIntoContainer(
+                        towards = direction,
+                        animationSpec = animationSpec
+                    ) with slideOutOfContainer(
+                        towards = direction,
+                        animationSpec = animationSpec
+                    )
+                }
+            ) { targetState ->
+                when (targetState.surveyQuestions) {
+                    SurveyQuestions.LOGIN -> {
+                        Login(modifier = modifier)
+                    }
+                    SurveyQuestions.WHAT_BRINGS_YOU_HERE -> {
+                        WhatBringsYouHere(
+                            selectedAnswers = viewModel.bringsYouHereResponse,
+                            possibleAnswers = possibleAnswers,
+                            onOptionsSelected = viewModel::onBringsYouHereResponse,
+                            modifier = modifier
+                        )
+                    }
+                    SurveyQuestions.PERKS -> Perks(modifier = modifier)
+                }
+            }
+        }
     }
-
 }
 
 @OptIn(ExperimentalAnimationApi::class)
@@ -119,6 +135,7 @@ fun SurveyScreenScaffold(
     isContinueEnabled: Boolean,
     isLastQuestion: Boolean,
     onContinuePressed: () -> Unit,
+    onDonePressed: () -> Unit,
     onBackPressed: () -> Unit,
     content: @Composable (PaddingValues) -> Unit
 ) {
@@ -138,8 +155,8 @@ fun SurveyScreenScaffold(
                     isContinueButtonEnabled = true,
                     onContinuePressed = onContinuePressed,
                     onPreviousPressed = onBackPressed,
-                    isLastQuestion = isLastQuestion
-
+                    shouldShowDoneButton = surveyScreenData.shouldShowDoneButton,
+                    onDonePressed = onDonePressed
                 )
             }
         )
@@ -150,7 +167,7 @@ fun SurveyScreenScaffold(
 @Composable
 fun Preview() {
     CheerselfTheme() {
-        SurveyScreen()
+        SurveyScreen(navController = rememberNavController())
     }
 }
 

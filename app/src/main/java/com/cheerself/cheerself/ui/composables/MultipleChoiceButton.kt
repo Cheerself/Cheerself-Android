@@ -27,7 +27,7 @@ fun MultipleChoiceButton(
     OutlinedButton(
         onClick = onClick,
         modifier = modifier
-            .padding(8.dp)
+            .padding(4.dp)
             .fillMaxWidth(),
         elevation = elevation,
         enabled = isEnabled,

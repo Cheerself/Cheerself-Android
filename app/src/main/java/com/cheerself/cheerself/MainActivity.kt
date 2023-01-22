@@ -3,7 +3,7 @@ package com.cheerself.cheerself
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.*
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -16,6 +16,7 @@ import androidx.core.view.WindowCompat
 import com.cheerself.cheerself.ui.screens.WelcomeScreen
 import com.cheerself.cheerself.ui.screens.survey.SurveyScreen
 import com.cheerself.cheerself.ui.theme.CheerselfTheme
+import com.cheerself.cheerself.utils.navigation.CheerselfApp
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 class MainActivity : ComponentActivity() {
@@ -34,10 +35,12 @@ class MainActivity : ComponentActivity() {
             CheerselfTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
-                    modifier = Modifier.fillMaxSize(),
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(WindowInsets.systemBars.asPaddingValues()),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    SurveyScreen()
+                    CheerselfApp()
                 }
             }
         }

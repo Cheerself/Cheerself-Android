@@ -34,7 +34,8 @@ fun PrimaryButton(
         false -> TextButton(
             enabled = isEnabled,
             onClick = onClick,
-            modifier = modifier,
+            modifier = modifier
+                .height(50.dp),
             colors = ButtonDefaults.textButtonColors(
                 contentColor = MaterialTheme.colorScheme.primary,
             )

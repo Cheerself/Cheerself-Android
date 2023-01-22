@@ -1,20 +1,15 @@
 package com.cheerself.cheerself.ui.screens
 
-import android.graphics.drawable.BitmapDrawable
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Image
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.ImageBitmap
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -24,19 +19,21 @@ import com.cheerself.cheerself.R
 import com.cheerself.cheerself.ui.composables.PrimaryButton
 
 @Composable
-fun WelcomeScreen() {
+fun WelcomeScreen(
+    navigateToSurveyScreen: () -> Unit
+) {
     Column(
-        modifier = Modifier
-            .safeContentPadding()
-//            .padding(WindowInsets.systemBars.asPaddingValues())
     ) {
         Greeting()
-        ContinueButtons()
+        ContinueButtons(onClick = navigateToSurveyScreen)
     }
 }
 
 @Composable
-fun ContinueButtons(modifier: Modifier = Modifier) {
+fun ContinueButtons(
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier
+) {
     Column(
         verticalArrangement = Arrangement.Bottom,
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -47,7 +44,7 @@ fun ContinueButtons(modifier: Modifier = Modifier) {
             modifier = Modifier
                 .padding(start = 16.dp, end = 16.dp)
                 .fillMaxWidth(1f),
-            onClick = {}
+            onClick = onClick
         )
         PrimaryButton(
             isFilled = false,
@@ -64,7 +61,9 @@ fun Greeting(modifier: Modifier = Modifier) {
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = modifier.fillMaxWidth(1f)
     ) {
+        Spacer(modifier = Modifier.size(64.dp))
         AppLogo()
+        Spacer(modifier = Modifier.size(12.dp))
         Text(
             text = stringResource(id = R.string.welcome)
         )
@@ -100,5 +99,5 @@ fun PreviewAppLogo() {
 @Preview(showSystemUi = true)
 @Composable
 fun PreviewWelcomeScreen() {
-    WelcomeScreen()
+    WelcomeScreen(navigateToSurveyScreen = {})
 }

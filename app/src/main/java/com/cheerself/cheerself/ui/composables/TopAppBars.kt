@@ -37,16 +37,17 @@ fun SurveyTopAppBar(
     ) {
         OutlinedButton(
             onClick = onBackPressed,
-            modifier = Modifier.size(50.dp),
+            modifier = Modifier.size(35.dp),
             shape = CircleShape,
-            border = BorderStroke(2.dp, Color.Black),
+            border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline.copy(alpha = 0.5f)),
             contentPadding = PaddingValues(0.dp),
 
             ) {
             Icon(
                 imageVector = Icons.Rounded.ChevronLeft,
                 contentDescription = "",
-                modifier = Modifier.size(50.dp)
+                modifier = Modifier.size(50.dp),
+                tint = Color.Black
             )
         }
 
@@ -61,7 +62,7 @@ fun SurveyTopAppBar(
                 .fillMaxWidth()
                 .clip(shape = CircleShape),
             trackColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.12f),
-            color = MaterialTheme.colorScheme.secondary
+            color = MaterialTheme.colorScheme.primary
         )
     }
 }

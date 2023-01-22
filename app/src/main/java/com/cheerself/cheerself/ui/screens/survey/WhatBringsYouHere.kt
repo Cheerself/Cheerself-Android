@@ -3,9 +3,11 @@ package com.cheerself.cheerself.ui.screens.survey
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.*
 import androidx.compose.foundation.lazy.staggeredgrid.LazyVerticalStaggeredGrid
 import androidx.compose.foundation.lazy.staggeredgrid.StaggeredGridCells
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.remember
@@ -16,6 +18,7 @@ import androidx.compose.ui.unit.dp
 import com.cheerself.cheerself.R
 import com.cheerself.cheerself.ui.composables.MultipleChoiceButton
 import com.cheerself.cheerself.ui.composables.QuestionTemplate
+import com.cheerself.cheerself.ui.theme.CheerselfTheme
 import kotlin.reflect.KProperty0
 
 data class MultipleChoice(
@@ -34,11 +37,11 @@ fun WhatBringsYouHere(
     Column(modifier = modifier) {
         QuestionTemplate(
             title = stringResource(id = R.string.what_brings_you_here),
-            description = stringResource(id = R.string.select_2)
+            description = stringResource(id = R.string.select_2),
         )
         LazyVerticalGrid(
             columns = GridCells.Fixed(2),
-            contentPadding = PaddingValues(8.dp),
+//            contentPadding = PaddingValues(8.dp),
         ) {
             items(
                 possibleAnswers,
@@ -80,6 +83,7 @@ fun PreviewWhatBringsYouHere() {
         R.string.something_else
     )
     val selectedAnswers = remember { mutableStateListOf(R.string.something_else) }
+
     WhatBringsYouHere(
         possibleAnswers = possibleAnswers,
         selectedAnswers = selectedAnswers,

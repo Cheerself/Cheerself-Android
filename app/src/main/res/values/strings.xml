@@ -7,7 +7,9 @@
     <string name="Continue">Continue</string>
     <string name="getStarted">Get Started</string>
 
-    <string name="work_employee_email">What is you work email?</string>
+    <string name="data_sharing_note">This Information is not shared with our partners and is only used to personalise your experience</string>
+
+    <string name="work_employee_email">What is your work email?</string>
     <string name="work_description">We currently only permit employer-sponsored users and a few insurance providers</string>
     <string name="login_note">kindly verify before continuing</string>
 

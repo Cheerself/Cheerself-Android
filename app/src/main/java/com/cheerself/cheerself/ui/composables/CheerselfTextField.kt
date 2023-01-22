@@ -41,7 +41,11 @@ fun CheerselfTextField(
         keyboardOptions = keyboardOptions,
         modifier = modifier,
         colors = TextFieldDefaults.outlinedTextFieldColors(
-            focusedBorderColor = MaterialTheme.colorScheme.primary
+            focusedBorderColor = MaterialTheme.colorScheme.primary,
+            focusedLeadingIconColor = MaterialTheme.colorScheme.primary,
+            unfocusedBorderColor = MaterialTheme.colorScheme.outline.copy(alpha = 0.5f),
+            unfocusedLeadingIconColor = MaterialTheme.colorScheme.outline.copy(alpha = 0.5f),
+            unfocusedLabelColor = MaterialTheme.colorScheme.outline.copy(alpha = 0.5f)
         ),
         placeholder = {
             Text(text = "example@cheerself.com")

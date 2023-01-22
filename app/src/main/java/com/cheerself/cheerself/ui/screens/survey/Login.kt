@@ -18,6 +18,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.cheerself.cheerself.R
 import com.cheerself.cheerself.ui.composables.CheerselfTextField
 import com.cheerself.cheerself.ui.composables.QuestionTemplate
+import com.cheerself.cheerself.ui.theme.OpenSauceOne
 
 @Composable
 fun Login(modifier: Modifier = Modifier) {
@@ -47,6 +48,7 @@ fun Login(modifier: Modifier = Modifier) {
             Text(
                 text = "Check eligible insurance providers",
                 style = TextStyle(
+                    fontFamily = OpenSauceOne,
                     fontStyle = FontStyle.Italic,
                     textDecoration = TextDecoration.Underline
                 )

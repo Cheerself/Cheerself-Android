@@ -3,7 +3,6 @@ package com.cheerself.cheerself.viewmodels
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
-import com.cheerself.cheerself.ui.navigation.MainDestination
 
 class SurveyViewModel : ViewModel() {
     // ---- login process ----
@@ -17,7 +16,7 @@ class SurveyViewModel : ViewModel() {
     )
 
     // ---- response exposed as state ----
-
+    enum class Screen { Welcome, SignUp, SignIn, Survey }
     private val _isLoginComplete = mutableStateOf(false)
     val isLoginComplete: Boolean
         get() = _isLoginComplete.value
@@ -25,6 +24,7 @@ class SurveyViewModel : ViewModel() {
     private val _bringsYouHereResponse = mutableStateListOf<Int>()
     val bringsYouHereResponse: List<Int>
         get() = _bringsYouHereResponse
+
 
     fun onBringsYouHereResponse(selected: Boolean, answer: Int) {
         if (selected) {
@@ -64,6 +64,12 @@ class SurveyViewModel : ViewModel() {
     fun onContinuePressed() {
         changeQuestion(questionIndex + 1)
     }
+    fun onPreviousPressed() {
+        if (questionIndex == 0) {
+            throw IllegalStateException("onPreviousPressed when on question 0")
+        }
+        changeQuestion(questionIndex - 1)
+    }
     private fun changeQuestion(newQuestionIndex: Int) {
         questionIndex = newQuestionIndex
 //        _isNextEnabled.value = getIsNextEnabled()
@@ -82,6 +88,7 @@ class SurveyViewModel : ViewModel() {
             currentIndex = questionIndex,
             totalQuestions = questionOrder.size,
             shouldShowPreviousButton = questionIndex > 0,
+            shouldShowDoneButton = questionIndex == questionOrder.size - 1,
             isLastQuestion = questionIndex == questionOrder.lastIndex,
             surveyQuestions = questionOrder[questionIndex]
         )
@@ -98,6 +105,7 @@ data class SurveyQuestionsData(
     val totalQuestions: Int,
     val isLastQuestion: Boolean,
     val shouldShowPreviousButton: Boolean,
+    val shouldShowDoneButton: Boolean,
     val surveyQuestions: SurveyQuestions
 )
 
