@@ -7,6 +7,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
@@ -21,13 +22,19 @@ fun DoctorTile(
     tagLine: String,
     modifier: Modifier = Modifier
 ) {
-    Row(modifier = modifier.fillMaxWidth()) {
-        Box(modifier = Modifier.padding(PaddingValues(5.dp))) {
+    Row(modifier = modifier
+        .fillMaxWidth()
+        .padding(12.dp)) {
+        Box(
+            contentAlignment = Alignment.TopStart,
+            modifier = Modifier
+                .padding(PaddingValues(5.dp))
+                .size(70.dp)) {
             Image(
                 painter = painterResource(id = R.drawable.sampleimg),
                 contentDescription = "",
                 modifier = Modifier
-                    .size(70.dp)
+                    .size(50.dp)
                     .clip(CircleShape),
                 contentScale = ContentScale.Crop
             )
@@ -37,17 +44,22 @@ fun DoctorTile(
 }
 
 @Composable
-fun DoctorInfo(name: String, tagLine: String) {
-    Column() {
+fun DoctorInfo(name: String, tagLine: String,modifier: Modifier=Modifier) {
+    Column(modifier=modifier) {
         Text(text = name)
+        Spacer(modifier = Modifier.size(20.dp))
         Text(text = tagLine)
     }
 }
 
-@Preview(showBackground = true)
+@Preview(showSystemUi = true)
 @Composable
 fun PreviewDoctorTile() {
     val name = "Sahil Godara"
     val tagLine = "Specialises in stress management, and anxiety coaching."
-    DoctorTile(name, tagLine)
+    Column() {
+
+        DoctorTile(name, tagLine)
+        DoctorTile(name, tagLine)
+    }
 }

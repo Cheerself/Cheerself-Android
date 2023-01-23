@@ -47,6 +47,8 @@ fun SurveyBottomBar(
                 fontSize = 10.sp,
                 style = MaterialTheme.typography.bodySmall,
             )
+            DottedDivider()
+
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
