@@ -2,18 +2,15 @@ package com.cheerself.cheerself.ui.composables
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-import com.cheerself.cheerself.R
-import androidx.compose.ui.geometry.RoundRect
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
+import com.cheerself.cheerself.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

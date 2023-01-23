@@ -16,7 +16,6 @@ class SurveyViewModel : ViewModel() {
     )
 
     // ---- response exposed as state ----
-    enum class Screen { Welcome, SignUp, SignIn, Survey }
     private val _isLoginComplete = mutableStateOf(false)
     val isLoginComplete: Boolean
         get() = _isLoginComplete.value

@@ -2,7 +2,6 @@ package com.cheerself.cheerself.ui.composables
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.outlined.Info
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -11,8 +10,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -47,8 +44,6 @@ fun SurveyBottomBar(
                 fontSize = 10.sp,
                 style = MaterialTheme.typography.bodySmall,
             )
-            DottedDivider()
-
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -79,12 +74,10 @@ fun SurveyBottomBar(
                         modifier = Modifier.weight(1f)
                     )
                 }
-
             }
         }
     }
 }
-
 
 @Preview
 @Composable
@@ -95,7 +88,7 @@ fun PreviewSurveyBottomBar() {
             isContinueButtonEnabled = true,
             onContinuePressed = { },
             onPreviousPressed = { },
-            onDonePressed = {},
+            onDonePressed = { },
             shouldShowDoneButton = true
         )
     }

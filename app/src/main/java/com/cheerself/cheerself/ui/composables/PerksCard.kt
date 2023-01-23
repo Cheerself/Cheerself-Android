@@ -1,10 +1,8 @@
 package com.cheerself.cheerself.ui.composables
 
-import android.graphics.fonts.FontStyle
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Card
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -30,7 +28,7 @@ fun PerksCard(
         modifier = modifier
             .padding(8.dp)
     ) {
-        Box() {
+        Box {
             Text(
                 text = "Coming Soon",
                 modifier = Modifier
@@ -72,7 +70,7 @@ fun PerksCard(
     }
 }
 
-@Preview(showSystemUi = true)
+@Preview(showBackground = true)
 @Composable
 fun PreviewPerksCard() {
     val perk = "Enjoy upto 50% off on Coaching"

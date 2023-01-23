@@ -21,7 +21,6 @@ val provider = GoogleFont.Provider(
     certificates = R.array.com_google_android_gms_fonts_certs
 )
 
-
 /**
  * Hard coded font as its not available on google fonts
  */

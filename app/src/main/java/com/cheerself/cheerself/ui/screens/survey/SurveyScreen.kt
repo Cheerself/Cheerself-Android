@@ -20,7 +20,6 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import com.cheerself.cheerself.CheerselfAppState
 import com.cheerself.cheerself.R
 import com.cheerself.cheerself.rememberCheerselfAppState
 import com.cheerself.cheerself.ui.composables.SurveyBottomBar
@@ -51,16 +50,14 @@ fun SurveyScreen(navController: NavHostController) {
     )
     SurveyScreenScaffold(
         surveyScreenData = surveyScreenData,
-        isContinueEnabled = viewModel.isContinueEnabled,
-        isLastQuestion = viewModel.surveyScreenData.isLastQuestion,
+
         onContinuePressed = { viewModel.onContinuePressed() },
         onBackPressed = { viewModel.onBackPressed() },
         onDonePressed = {
             viewModel.onDonePressed()
             if (viewModel.isSurveyComplete) {
                 navController.navigate(MainDestination.HomeScreen.route) {
-                    popUpTo(MainDestination.WelcomeScreen.route){ inclusive = true}
-
+                    popUpTo(MainDestination.WelcomeScreen.route) { inclusive = true }
                 }
             }
         }
@@ -71,7 +68,9 @@ fun SurveyScreen(navController: NavHostController) {
 
         if (viewModel.isSurveyComplete) {
             Log.d("Survey", "Complete")
-//            navController.navigate(MainDestination.HomeScreen.route)
+            LaunchedEffect(viewModel.isSurveyComplete) {
+                appState.navigateToHomeScreen()
+            }
         } else {
             AnimatedContent(
                 targetState = surveyScreenData,
@@ -132,14 +131,12 @@ private fun getTransitionDirection(
 @Composable
 fun SurveyScreenScaffold(
     surveyScreenData: SurveyQuestionsData,
-    isContinueEnabled: Boolean,
-    isLastQuestion: Boolean,
     onContinuePressed: () -> Unit,
     onDonePressed: () -> Unit,
     onBackPressed: () -> Unit,
     content: @Composable (PaddingValues) -> Unit
 ) {
-    Surface() {
+    Surface {
         Scaffold(
             topBar = {
                 SurveyTopAppBar(
@@ -166,7 +163,7 @@ fun SurveyScreenScaffold(
 @Preview(showSystemUi = true)
 @Composable
 fun Preview() {
-    CheerselfTheme() {
+    CheerselfTheme {
         SurveyScreen(navController = rememberNavController())
     }
 }

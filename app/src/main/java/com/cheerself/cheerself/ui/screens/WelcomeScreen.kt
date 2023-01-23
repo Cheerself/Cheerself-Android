@@ -22,8 +22,7 @@ import com.cheerself.cheerself.ui.composables.PrimaryButton
 fun WelcomeScreen(
     navigateToSurveyScreen: () -> Unit
 ) {
-    Column(
-    ) {
+    Column {
         Greeting()
         ContinueButtons(onClick = navigateToSurveyScreen)
     }
@@ -85,7 +84,6 @@ fun AppLogo() {
             painter = painterResource(id = R.drawable.ic_launcher_foreground),
             contentDescription = "",
             contentScale = ContentScale.FillBounds,
-//            modifier = Modifier.fillMaxSize()
         )
     }
 }

@@ -25,11 +25,10 @@ fun Login(modifier: Modifier = Modifier) {
     var textState by rememberSaveable(stateSaver = TextFieldValue.Saver) {
         mutableStateOf(TextFieldValue())
     }
-//    var textFieldFocusState by remember { mutableStateOf(false) }
     Surface(
         modifier = modifier
     ) {
-        Column() {
+        Column {
             QuestionTemplate(
                 title = stringResource(id = R.string.work_employee_email),
                 description = stringResource(id = R.string.work_description)

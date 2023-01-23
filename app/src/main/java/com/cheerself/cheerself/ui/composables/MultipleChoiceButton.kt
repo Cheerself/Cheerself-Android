@@ -49,7 +49,7 @@ fun MultipleChoiceButton(
 @Preview(showBackground = true)
 @Composable
 fun PreviewMultipleChoiceButton() {
-    Column() {
+    Column {
         Row(Modifier.fillMaxWidth()) {
             MultipleChoiceButton(
                 onClick = { /*TODO*/ },
@@ -61,7 +61,7 @@ fun PreviewMultipleChoiceButton() {
                 isSelected = false,
                 onClick = { /*TODO*/ },
                 choice = "something else",
-                
+
                 modifier = Modifier.weight(1f)
             )
         }
