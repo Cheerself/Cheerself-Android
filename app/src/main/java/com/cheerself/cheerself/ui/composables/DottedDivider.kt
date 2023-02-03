@@ -32,7 +32,7 @@ fun DottedDivider(modifier: Modifier = Modifier) {
     }
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 fun PreviewDottedDivider() {
     DottedDivider()

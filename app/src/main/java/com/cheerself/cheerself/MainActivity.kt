@@ -10,6 +10,9 @@ import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.core.view.WindowCompat
+import androidx.navigation.compose.rememberNavController
+import com.cheerself.cheerself.ui.screens.CoachProfile
+import com.cheerself.cheerself.ui.screens.HomeScreen
 import com.cheerself.cheerself.ui.theme.CheerselfTheme
 import com.cheerself.cheerself.utils.navigation.CheerselfApp
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
@@ -18,6 +21,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         WindowCompat.setDecorFitsSystemWindows(window, false)
+
         setContent {
             val systemUiController = rememberSystemUiController()
             SideEffect {
@@ -25,17 +29,17 @@ class MainActivity : ComponentActivity() {
                     color = Color.Transparent,
                     darkIcons = true
                 )
-
             }
             CheerselfTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier
-                        .fillMaxSize()
-                        .padding(WindowInsets.systemBars.asPaddingValues()),
+                        .fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    CheerselfApp()
+//                    CheerselfApp()
+//                    HomeScreen(navController = rememberNavController())
+                    CoachProfile()
                 }
             }
         }

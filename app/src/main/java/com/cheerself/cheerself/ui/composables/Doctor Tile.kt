@@ -34,10 +34,10 @@ fun DoctorTile(
             Image(
                 painter = painterResource(id = R.drawable.sampleimg),
                 contentDescription = "",
+                contentScale = ContentScale.Crop,
                 modifier = Modifier
                     .size(50.dp)
                     .clip(CircleShape),
-                contentScale = ContentScale.Crop
             )
         }
         DoctorInfo(name = name, tagLine = tagLine)
@@ -48,7 +48,7 @@ fun DoctorTile(
 fun DoctorInfo(name: String, tagLine: String, modifier: Modifier = Modifier) {
     Column(modifier = modifier) {
         Text(text = name)
-        Spacer(modifier = Modifier.size(20.dp))
+        Spacer(modifier = Modifier.size(15.dp))
         Text(text = tagLine)
     }
 }
